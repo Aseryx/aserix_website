@@ -36,27 +36,23 @@ const LandingPage = () => {
                     <div className="mb-8 animate-fade-in-up">
                         <span className="inline-flex items-center px-4 py-1.5 rounded-full border border-orange-500/30 bg-orange-500/10 backdrop-blur-md text-orange-400 text-sm font-medium tracking-wide uppercase">
                             <span className="w-2 h-2 rounded-full bg-orange-500 mr-2 animate-pulse"></span>
-                            Founding Members Access
+                            Founding Members: Access Open
                         </span>
                     </div>
 
                     <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter mb-6 leading-tight">
                         The Swiss Bank for <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-coral">
                             Your Biology
                         </span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-gray-300 mb-4 max-w-3xl mx-auto font-light leading-relaxed">
-                        Own your Biology. Get paid by AI labs. Unlock your Personal Health LLM.
+                    <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto font-light leading-relaxed">
+                        Connect your devices. Secure your data. Turn your biology into your most valuable asset.
                     </p>
 
-                    <p className="text-lg text-gray-400 mb-12 font-light">
-                        Connect Oura, Apple, Whoop — early access to the AI trained only on you.
-                    </p>
-
-                    <button onClick={() => setShowWaitlistModal(true)} className="group relative px-8 py-4 bg-orange-600 hover:bg-orange-500 text-white text-lg font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-[0_0_40px_-10px_rgba(234,88,12,0.5)]">
-                        <span className="relative z-10">Join Waitlist</span>
+                    <button onClick={() => setShowWaitlistModal(true)} className="group relative px-8 py-4 bg-gradient-to-r from-brand-orange to-brand-coral text-white text-lg font-bold rounded-full transition-all duration-300 hover:scale-105 shadow-[0_0_40px_-10px_rgba(252,95,43,0.5)]">
+                        <span className="relative z-10">Request Access</span>
                         <div className="absolute inset-0 rounded-full bg-white/20 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     </button>
                 </div>
@@ -114,8 +110,8 @@ const LandingPage = () => {
                     <div className="text-center mb-24">
                         <h2 className="text-3xl md:text-5xl font-bold mb-8 tracking-tight">The Solution</h2>
                         <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto font-light">
-                            <span className="text-orange-500 font-medium">Phase 1:</span> Time-series vault + payouts. <br />
-                            <span className="text-orange-500 font-medium">Phase 3:</span> Your exclusive Health LLM.
+                            <span className="text-brand-orange font-medium">Today:</span> Your Sovereign Vault & Income. <br />
+                            <span className="text-brand-orange font-medium">Tomorrow:</span> Your Personal Health Intelligence.
                         </p>
                     </div>
 
@@ -124,9 +120,9 @@ const LandingPage = () => {
                         {/* Node 1 */}
                         <div className="w-full md:w-64 p-8 rounded-2xl bg-black border border-gray-800 text-center relative group">
                             <div className="absolute inset-0 bg-gradient-to-b from-gray-800/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
-                            <div className="text-gray-500 text-sm uppercase tracking-widest mb-2">Input</div>
-                            <div className="text-2xl font-bold text-white mb-2">Wearables</div>
-                            <div className="text-gray-500 text-sm">Oura, Apple, Whoop</div>
+                            <div className="text-gray-500 text-sm uppercase tracking-widest mb-2">Data Sources</div>
+                            <div className="text-2xl font-bold text-white mb-2">Unified</div>
+                            <div className="text-gray-500 text-sm">Genetics, Labs, Wearables</div>
                         </div>
 
                         {/* Arrow */}
@@ -138,9 +134,9 @@ const LandingPage = () => {
                         </div>
 
                         {/* Node 2 - Centerpiece */}
-                        <div className="w-full md:w-72 p-1 rounded-2xl bg-gradient-to-b from-orange-500 to-red-600 shadow-[0_0_50px_-10px_rgba(234,88,12,0.3)] transform md:scale-110 z-10">
-                            <div className="bg-black rounded-xl p-8 text-center h-full flex flex-col justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 bg-orange-500/5"></div>
+                        <div className="w-full md:w-72 p-1 rounded-2xl bg-gradient-to-b from-brand-orange to-brand-coral shadow-[0_0_50px_-10px_rgba(252,95,43,0.3)] transform md:scale-110 z-10">
+                            <div className="bg-brand-dark rounded-xl p-8 text-center h-full flex flex-col justify-center relative overflow-hidden">
+                                <div className="absolute inset-0 bg-brand-orange/5"></div>
                                 <div className="relative z-10">
                                     <div className="text-orange-500 text-sm uppercase tracking-widest mb-2 font-bold">Encrypted Vault</div>
                                     <div className="text-3xl font-bold text-white mb-2">Aseryx</div>
@@ -161,8 +157,8 @@ const LandingPage = () => {
                         <div className="w-full md:w-64 p-8 rounded-2xl bg-black border border-gray-800 text-center relative group">
                             <div className="absolute inset-0 bg-gradient-to-b from-gray-800/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl"></div>
                             <div className="text-gray-500 text-sm uppercase tracking-widest mb-2">Output</div>
-                            <div className="text-2xl font-bold text-white mb-2">AI Labs</div>
-                            <div className="text-green-400 text-sm font-mono">$$$ Payouts</div>
+                            <div className="text-2xl font-bold text-white mb-2">Research Partners</div>
+                            <div className="text-green-400 text-sm font-mono">Passive Income & Cures</div>
                         </div>
                     </div>
                 </div>
@@ -404,8 +400,8 @@ const LandingPage = () => {
                         Join the revolution.
                     </p>
 
-                    <button onClick={() => setShowWaitlistModal(true)} className="px-16 py-6 bg-gradient-to-r from-orange-600 to-red-600 text-white text-2xl font-bold rounded-full hover:from-orange-500 hover:to-red-500 transition-all duration-300 hover:scale-105 shadow-[0_0_60px_-10px_rgba(234,88,12,0.6)] hover:shadow-[0_0_80px_-10px_rgba(234,88,12,0.8)]">
-                        Join Waitlist
+                    <button onClick={() => setShowWaitlistModal(true)} className="px-16 py-6 bg-gradient-to-r from-brand-orange to-brand-coral text-white text-2xl font-bold rounded-full hover:from-[#e55426] hover:to-[#fc5f2b] transition-all duration-300 hover:scale-105 shadow-[0_0_60px_-10px_rgba(252,95,43,0.6)] hover:shadow-[0_0_80px_-10px_rgba(252,95,43,0.8)]">
+                        Secure Access
                     </button>
 
                     <p className="mt-12 text-sm text-orange-400 uppercase tracking-widest">
