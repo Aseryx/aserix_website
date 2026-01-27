@@ -42,7 +42,7 @@ const LandingPage = () => {
             <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${scrolled ? 'bg-[#0a0a0a]/90 backdrop-blur-xl' : ''}`}>
                 <div className="max-w-7xl mx-auto px-8 py-6 flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                        <img src="/aseryx.webp" alt="Aseryx" className="w-8 h-8 object-contain" />
+                        <img src="/renew.png" alt="Aseryx" className="w-10 h-10 object-contain" />
                         <span className="text-lg font-medium tracking-tight">Aseryx</span>
                     </div>
                     <button 
