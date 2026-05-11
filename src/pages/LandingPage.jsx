@@ -34,8 +34,8 @@ const UNLOCKS = [
     },
     {
         icon: Lock,
-        title: 'Compliance Built In',
-        description: 'Designed for GDPR, HIPAA, and the EU AI Act. Enforced automatically.',
+        title: 'Compliance-Ready Architecture',
+        description: 'Zero-custody verification aligns with GDPR, HIPAA, and the EU AI Act by design. Data never moves.',
     },
 ];
 

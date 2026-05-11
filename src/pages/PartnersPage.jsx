@@ -147,7 +147,7 @@ const PartnersPage = () => {
                                         <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Verified quality score (0 to 100) before you set a price</span></li>
                                         <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>You approve every access request</span></li>
                                         <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>80 to 85% recurring revenue per training run</span></li>
-                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Zero liability. Enforced automatically, not by contracts</span></li>
+                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Zero custody. Enforced by architecture, not by contracts</span></li>
                                         <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Your terms. Your price.</span></li>
                                     </ul>
                                 </div>
