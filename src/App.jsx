@@ -6,6 +6,8 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import TermsOfUsePage from './pages/TermsOfUsePage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import DatasetPage from './pages/DatasetPage';
+import DatasetsPage from './pages/DatasetsPage';
 
 function NavigationProgress() {
   const [progress, setProgress] = useState(0);
@@ -66,7 +68,9 @@ function App() {
         <Route path="/privacy" element={<PrivacyPolicyPage />} />
         <Route path="/terms" element={<TermsOfUsePage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/datasets" element={<DatasetsPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/dataset/:slug" element={<DatasetPage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>

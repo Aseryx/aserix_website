@@ -8,6 +8,7 @@ const focusRing = 'focus:outline-none focus:ring-2 focus:ring-brand-orange focus
 const NAV_LINKS = [
     { to: '/', label: 'Home' },
     { to: '/buyers', label: 'For AI Builders' },
+    { to: '/datasets', label: 'Datasets' },
     { to: '/blog', label: 'Blog' },
 ];
 
