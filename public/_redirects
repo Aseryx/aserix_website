@@ -1,0 +1,3 @@
+# SPA fallbacks for dynamic client-rendered routes
+/dataset/* /index.html 200
+/* /index.html 200

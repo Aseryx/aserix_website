@@ -7,7 +7,16 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = resolve(__dirname, '../dist');
 const serverDir = resolve(distDir, 'server');
 
-const routes = ['/', '/partners', '/buyers', '/privacy', '/terms', '/blog', '/blog/benchmarks-tell-you-what-to-measure'];
+const routes = [
+  '/',
+  '/partners',
+  '/buyers',
+  '/privacy',
+  '/terms',
+  '/blog',
+  '/datasets',
+  '/blog/benchmarks-tell-you-what-to-measure',
+];
 
 async function prerender() {
   // Build the SSR bundle
@@ -37,12 +46,12 @@ async function prerender() {
       `$1${appHtml}$2`
     );
 
-    // Determine output path
+    // Write to directory-based paths for Cloudflare Pages pretty URLs
     let filePath;
     if (route === '/') {
       filePath = resolve(distDir, 'index.html');
     } else {
-      filePath = resolve(distDir, `${route.slice(1)}.html`);
+      filePath = resolve(distDir, route.slice(1), 'index.html');
       mkdirSync(dirname(filePath), { recursive: true });
     }
 
