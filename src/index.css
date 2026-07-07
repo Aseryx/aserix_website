@@ -321,11 +321,11 @@ a:focus-visible,
 
 /* Asymmetric rounded corners (Oasis card style) */
 .card-oasis {
-    border-radius: 16px 16px 16px 0;
+    border-radius: 16px;
 }
 
 .card-oasis-alt {
-    border-radius: 16px 16px 0 16px;
+    border-radius: 16px;
 }
 
 /* Section divider line (faint horizontal) */

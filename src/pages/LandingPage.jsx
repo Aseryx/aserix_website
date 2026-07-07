@@ -210,10 +210,10 @@ const LandingPage = () => {
 
                         {/* Right column: The Fix - tall highlighted card */}
                         <div className="md:col-span-2">
-                            <ScrollReveal delay={300}>
-                                <div className="group h-full flex flex-col bg-[#EDEBE8] dark:bg-[#111111] card-oasis overflow-hidden border border-brand-orange/10 dark:border-brand-orange/20">
-                                    <div className="flex items-center justify-center py-12 md:py-16 flex-1">
-                                        <GeometricShield className="w-36 h-36 md:w-44 md:h-44 text-brand-orange group-hover:scale-105 transition-transform duration-500" />
+                            <ScrollReveal delay={300} className="h-full">
+                                <div className="group h-full flex flex-col justify-between bg-[#EDEBE8] dark:bg-[#111111] card-oasis overflow-hidden border border-brand-orange/10 dark:border-brand-orange/20">
+                                    <div className="flex items-center justify-center py-8 md:py-12">
+                                        <GeometricShield className="w-28 h-28 md:w-36 md:h-36 text-brand-orange group-hover:scale-105 transition-transform duration-500" />
                                     </div>
                                     <div className="p-6 md:p-8 border-t border-brand-orange/20 dark:border-brand-orange/30">
                                         <p className="font-mono text-xs text-brand-orange mb-4 uppercase tracking-wider">03 / The Fix</p>
