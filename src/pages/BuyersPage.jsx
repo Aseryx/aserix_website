@@ -1,22 +1,43 @@
-import React, { useEffect } from 'react';
-import { ArrowRight, ArrowUpRight, Check, BadgeCheck } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Check } from 'lucide-react';
 import { ScrollReveal } from '../hooks/useScrollReveal.jsx';
-import Navigation from '../components/layout/Navigation.jsx';
-import Footer from '../components/layout/Footer.jsx';
+import PageLayout from '../components/layout/PageLayout.jsx';
 import ParticlesBackground from '../components/common/ParticlesBackground.jsx';
+import RiskBand from '../components/common/RiskBand.jsx';
+import FaqItem from '../components/common/FaqItem.jsx';
 import { AppraisalCertificate } from '../components/common/AppraisalCertificate.jsx';
 import { GeometricShield, GeometricCube, GeometricLattice } from '../components/common/GeometricIllustrations.jsx';
+import { usePageMeta } from '../hooks/usePageMeta.jsx';
+import { PAGE_META } from '../config/pageMeta.js';
+import { TALLY } from '../config/tally.js';
+
+const BUYER_FAQS = [
+  {
+    question: 'How do I know the data meets my requirements?',
+    answer: 'Every dataset on Aseryx goes through a two-layer verification. The first layer checks provenance and readiness. The second scores information richness across 11+ dimensions. You see the full verified breakdown before committing any budget.',
+    delay: 100,
+  },
+  {
+    question: 'Can I evaluate data quality before I pay?',
+    answer: 'Yes. The appraisal certificate and richness score are available before any transaction. You see proof that the dataset meets a defined quality threshold without the institution exposing its contents.',
+    delay: 200,
+  },
+  {
+    question: 'How can I trust the quality score without seeing the raw data?',
+    answer: 'The score is not a self-reported claim. It is the output of a verification protocol that either passes or fails. You verify the proof, not the data. The result is deterministic and independently reproducible.',
+    delay: 300,
+  },
+  {
+    question: 'What if I need to verify something the standard appraisal does not cover?',
+    answer: 'You define your own criteria. Set the variables, the acceptable ranges, and the failure tolerance. The protocol checks every record in the dataset against your requirements and returns a pass-or-fail result with failure counts per variable. You see exactly whether the data qualifies. The raw records never leave the provider.',
+    delay: 400,
+  },
+];
 
 const BuyersPage = () => {
-    useEffect(() => {
-        document.title = "Aseryx | For AI Builders";
-    }, []);
+  usePageMeta({ ...PAGE_META['/buyers'], path: '/buyers' });
 
-    return (
-        <div className="min-h-screen bg-[#F9F8F6] dark:bg-[#0a0a0a] text-[#1A1A1A] dark:text-white font-sans selection:bg-brand-orange selection:text-black overflow-x-hidden">
-
-            {/* Nav */}
-            <Navigation variant="enterprise" />
+  return (
+    <PageLayout>
 
             {/* HERO */}
             <section id="main-content" className="relative min-h-screen flex items-center pt-32 pb-24 grid-bg">
@@ -48,7 +69,7 @@ const BuyersPage = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="https://tally.so/r/dWdWQq"
+                                    href={TALLY.buyerAccess}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="group px-8 py-4 bg-brand-orange text-black font-medium text-sm uppercase tracking-wide hover:bg-white transition-colors flex items-center justify-center gap-3"
@@ -86,22 +107,12 @@ const BuyersPage = () => {
                 </div>
             </section>
 
-            {/* ===== RISK REVERSAL BAND ===== */}
-            <section className="py-5 px-4 md:px-8 border-y border-[#E8E4DE] dark:border-[#1F2937] bg-[#F3F1EE] dark:bg-[#0f0f0f]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center sm:text-left">
-                        <div className="flex items-center gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
-                            <span className="text-xs font-mono text-[#6B7280] dark:text-gray-400 tracking-wide">Prove a dataset meets your quality threshold without exposing its contents.</span>
-                        </div>
-                        <span className="hidden sm:block w-px h-4 bg-[#D1D5DB] dark:bg-gray-700" />
-                        <div className="flex items-center gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
-                            <span className="text-xs font-mono text-[#6B7280] dark:text-gray-400 tracking-wide">Data never leaves the institution. Zero custody risk.</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <RiskBand
+                items={[
+                    'Prove a dataset meets your quality threshold without exposing its contents.',
+                    'Data never leaves the institution. Zero custody risk.',
+                ]}
+            />
 
             {/* THE PROBLEM */}
             <section className="py-32 px-4 md:px-8 bg-[#F9F8F6] dark:bg-[#050505] grid-bg">
@@ -163,7 +174,7 @@ const BuyersPage = () => {
                                         </p>
                                         
                                         <div className="mt-auto">
-                                            <a href="https://tally.so/r/dWdWQq" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-black text-brand-orange text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+                                            <a href={TALLY.buyerAccess} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-4 bg-black text-brand-orange text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
                                                 Request Access
                                             </a>
                                         </div>
@@ -213,7 +224,7 @@ const BuyersPage = () => {
 
                     <div className="mt-12 text-center">
                         <a
-                            href="https://tally.so/r/dWdWQq"
+                            href={TALLY.buyerAccess}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 text-brand-orange hover:text-[#1A1A1A] dark:hover:text-white transition-colors text-sm font-medium"
@@ -279,62 +290,10 @@ const BuyersPage = () => {
                         </h2>
                     </div>
 
-                    <div className="border-t-2 border-[#1A1A1A] dark:border-[#333]">
-                        <ScrollReveal delay={100}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">How do I know the data meets my requirements?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    Every dataset on Aseryx goes through a two-layer verification. The first layer checks provenance and readiness. The second scores information richness across 11+ dimensions. You see the full verified breakdown before committing any budget.
-                                </div>
-                            </details>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={200}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">Can I evaluate data quality before I pay?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    Yes. The appraisal certificate and richness score are available before any transaction. You see proof that the dataset meets a defined quality threshold without the institution exposing its contents.
-                                </div>
-                            </details>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={300}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">How can I trust the quality score without seeing the raw data?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    The score is not a self-reported claim. It is the output of a verification protocol that either passes or fails. You verify the proof, not the data. The result is deterministic and independently reproducible.
-                                </div>
-                            </details>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={400}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">What if I need to verify something the standard appraisal does not cover?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    You define your own criteria. Set the variables, the acceptable ranges, and the failure tolerance. The protocol checks every record in the dataset against your requirements and returns a pass-or-fail result with failure counts per variable. You see exactly whether the data qualifies. The raw records never leave the provider.
-                                </div>
-                            </details>
-                        </ScrollReveal>
+                    <div className="border-t-2 border-[var(--text-primary)] dark:border-[#333]">
+                        {BUYER_FAQS.map((faq) => (
+                            <FaqItem key={faq.question} question={faq.question} answer={faq.answer} delay={faq.delay} />
+                        ))}
                     </div>
                 </div>
             </section>
@@ -350,7 +309,7 @@ const BuyersPage = () => {
                         Access verified institutional data no other model has trained on.
                     </p>
                     <a
-                        href="https://tally.so/r/dWdWQq"
+                        href={TALLY.buyerAccess}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-8 py-4 bg-brand-orange text-black font-medium hover:bg-white transition-colors text-sm uppercase tracking-wide"
@@ -361,10 +320,8 @@ const BuyersPage = () => {
                 </div>
             </section>
 
-            <Footer variant="enterprise" />
-
-        </div>
-    );
+    </PageLayout>
+  );
 };
 
 export default BuyersPage;

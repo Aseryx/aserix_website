@@ -1,14 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowUpRight, Shield, BadgeCheck, Lock } from 'lucide-react';
+import { ArrowRight, Shield, BadgeCheck, Lock } from 'lucide-react';
 import { ScrollReveal } from '../hooks/useScrollReveal.jsx';
 import ParticlesBackground from '../components/common/ParticlesBackground.jsx';
-import Navigation from '../components/layout/Navigation.jsx';
-import Footer from '../components/layout/Footer.jsx';
-import BLOG_POSTS from '../data/blogPosts.js';
+import PageLayout from '../components/layout/PageLayout.jsx';
+import RiskBand from '../components/common/RiskBand.jsx';
+import FaqItem from '../components/common/FaqItem.jsx';
+import BLOG_POSTS from '../data/blog/index.js';
+import { formatDate } from '../utils/formatDate.js';
 import { AppraisalCertificate } from '../components/common/AppraisalCertificate.jsx';
-
-import { GeometricShield, GeometricCube, GeometricSphere, GeometricToroid, GeometricLattice, GeometricPrism, GeometricWave, GeometricHex } from '../components/common/GeometricIllustrations.jsx';
+import { GeometricShield, GeometricCube, GeometricSphere, GeometricToroid, GeometricLattice, GeometricPrism, GeometricWave } from '../components/common/GeometricIllustrations.jsx';
+import { usePageMeta } from '../hooks/usePageMeta.jsx';
+import { PAGE_META } from '../config/pageMeta.js';
+import { TALLY } from '../config/tally.js';
 const ROTATING_TEXTS = [
     'We prove it.',
     'You assetize it.',
@@ -47,28 +51,44 @@ const UNLOCKS = [
    LANDING PAGE
    ------------------------------------------------------- */
 
+const LANDING_FAQS = [
+  {
+    question: 'How does the appraisal work if the data never leaves?',
+    answer: 'Our protocol runs directly in your environment. We use cryptographic techniques to verify specific quality dimensions and generate an information richness score, returning only the verified proof and never the raw data itself.',
+    delay: 100,
+  },
+  {
+    question: 'What happens if my dataset fails Layer 1?',
+    answer: "If a dataset fails the initial provenance and readiness gate, it simply isn't issued a Verifiable Credential. You receive a report on what minimum requirements were not met so you can address them.",
+    delay: 200,
+  },
+  {
+    question: 'Are you compliant with GDPR and HIPAA?',
+    answer: 'Yes. Because the data never changes custody or moves to our servers, the Aseryx protocol inherently aligns with strict data residency and privacy regulations.',
+    delay: 300,
+  },
+];
+
 const LandingPage = () => {
-    const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentTextIndex((prev) => (prev + 1) % ROTATING_TEXTS.length);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
+  usePageMeta({ ...PAGE_META['/'], path: '/' });
 
-    return (
-        <div className="min-h-screen bg-[#F9F8F6] dark:bg-[#0a0a0a] text-[#1A1A1A] dark:text-white font-sans selection:bg-brand-orange selection:text-black overflow-x-hidden">
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % ROTATING_TEXTS.length);
+    }, 2000);
+    return () => clearInterval(interval);
+  }, []);
 
-            <Navigation variant="enterprise" />
-
-            {/* ===== SECTION 1: HERO ===== */}
-            <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 md:pt-32 md:pb-24 grid-bg overflow-hidden">
+  return (
+    <PageLayout>
+      <section id="main-content" className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 md:pt-32 md:pb-24 grid-bg overflow-hidden">
                 {/* Background elements */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,122,77,0.06),transparent_50%)]" />
                     <img
-                        src="/hero-bg-new.jpg"
+                        src="/hero-bg.webp"
                         alt=""
                         className="absolute top-0 right-0 w-full md:w-[70%] h-full object-cover object-top md:object-[center_20%] grayscale opacity-50 dark:opacity-20 mix-blend-multiply dark:mix-blend-screen"
                         style={{ maskImage: 'linear-gradient(to right, transparent 5%, black 35%), linear-gradient(to bottom, black 80%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to right, transparent 5%, black 35%), linear-gradient(to bottom, black 80%, transparent 100%)', maskComposite: 'intersect', WebkitMaskComposite: 'source-in' }}
@@ -108,7 +128,7 @@ const LandingPage = () => {
 
                     <div className="animate-fade-up delay-300 opacity-0 flex flex-wrap gap-4" style={{ animationFillMode: 'forwards' }}>
                         <a
-                            href="https://tally.so/r/eq6aVq"
+                            href={TALLY.appraisal}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="group inline-flex items-center gap-3 px-8 py-4 bg-brand-orange text-black font-medium tracking-wide text-sm uppercase hover:bg-white transition-colors focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-[#F9F8F6] dark:focus:ring-offset-[#0a0a0a]"
@@ -137,22 +157,12 @@ const LandingPage = () => {
                 </div>
             </section>
 
-            {/* ===== RISK REVERSAL BAND ===== */}
-            <section className="py-5 px-4 md:px-8 border-y border-[#E8E4DE] dark:border-[#1F2937] bg-[#F3F1EE] dark:bg-[#0f0f0f]">
-                <div className="max-w-7xl mx-auto">
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-12 text-center sm:text-left">
-                        <div className="flex items-center gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
-                            <span className="text-xs font-mono text-[#6B7280] dark:text-gray-400 tracking-wide">Appraisal runs in your environment. Nothing is transmitted.</span>
-                        </div>
-                        <span className="hidden sm:block w-px h-4 bg-[#D1D5DB] dark:bg-gray-700" />
-                        <div className="flex items-center gap-3">
-                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
-                            <span className="text-xs font-mono text-[#6B7280] dark:text-gray-400 tracking-wide">No lock-in. Control access at alltimes.</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <RiskBand
+                items={[
+                    'Appraisal runs in your environment. Nothing is transmitted.',
+                    'No lock-in. Control access at all times.',
+                ]}
+            />
 
             {/* ===== THE PRIVACY PARADOX ===== */}
             <section className="py-16 md:py-24 lg:py-32 px-4 md:px-8 grid-bg">
@@ -304,7 +314,7 @@ const LandingPage = () => {
 
                             <div className="mt-6">
                                 <a
-                                    href="https://tally.so/r/eq6aVq"
+                                    href={TALLY.appraisal}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="group inline-flex items-center gap-3 px-6 py-3 bg-brand-orange text-black font-medium tracking-wide text-sm uppercase hover:bg-white transition-colors"
@@ -342,7 +352,7 @@ const LandingPage = () => {
                                         <p className="font-mono text-xs text-brand-orange mb-4 uppercase tracking-wider">02 / Layer 2</p>
                                         <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Information Richness</h3>
                                         <p className="text-[#6B7280] dark:text-gray-400 text-sm leading-relaxed mb-5">
-                                            A score across 11+ dimensions computed via Cryptography. You and the buyer receive a verfiable breakdown of what makes your data useful before any commitment.
+                                            A score across 11+ dimensions computed via cryptography. You and the buyer receive a verifiable breakdown of what makes your data useful before any commitment.
                                         </p>
                                         <div className="space-y-2">
                                             {[
@@ -474,48 +484,10 @@ const LandingPage = () => {
                         </h2>
                     </div>
 
-                    <div className="border-t-2 border-[#1A1A1A] dark:border-[#333]">
-                        <ScrollReveal delay={100}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">How does the appraisal work if the data never leaves?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    Our protocol runs directly in your environment. We use cryptographic techniques to verify specific quality dimensions and generate an information richness score, returning only the verified proof and never the raw data itself.
-                                </div>
-                            </details>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={200}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">What happens if my dataset fails Layer 1?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    If a dataset fails the initial provenance and readiness gate, it simply isn't issued a Verifiable Credential. You receive a report on what minimum requirements were not met so you can address them.
-                                </div>
-                            </details>
-                        </ScrollReveal>
-
-                        <ScrollReveal delay={300}>
-                            <details className="group border-b border-[#E8E4DE] dark:border-[#1F2937] [&_summary::-webkit-details-marker]:hidden transition-all duration-300">
-                                <summary className="font-display text-xl md:text-2xl lg:text-3xl text-[#1A1A1A] dark:text-white cursor-pointer list-none flex justify-between items-center py-6 md:py-8 hover:text-brand-orange transition-colors">
-                                    <span className="max-w-3xl pr-8 leading-tight">Are you compliant with GDPR and HIPAA?</span>
-                                    <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-full border border-[#E8E4DE] dark:border-[#1F2937] flex items-center justify-center transition-all duration-300 group-open:rotate-45 group-open:bg-brand-orange group-open:border-brand-orange group-open:text-black group-hover:border-brand-orange">
-                                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4"></path></svg>
-                                    </span>
-                                </summary>
-                                <div className="pb-10 text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl animate-fade-in">
-                                    Yes. Because the data never changes custody or moves to our servers, the Aseryx protocol inherently aligns with strict data residency and privacy regulations.
-                                </div>
-                            </details>
-                        </ScrollReveal>
+                    <div className="border-t-2 border-[var(--text-primary)] dark:border-[#333]">
+                        {LANDING_FAQS.map((faq) => (
+                            <FaqItem key={faq.question} question={faq.question} answer={faq.answer} delay={faq.delay} />
+                        ))}
                     </div>
                 </div>
             </section>
@@ -533,7 +505,7 @@ const LandingPage = () => {
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a
-                                href="https://tally.so/r/eq6aVq"
+                                href={TALLY.appraisal}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group inline-flex items-center gap-3 px-8 py-4 bg-brand-orange text-black font-medium hover:bg-white transition-colors text-sm uppercase tracking-wide"
@@ -563,13 +535,7 @@ const LandingPage = () => {
                         </h2>
                     </div>
 
-                    {BLOG_POSTS.filter((p) => p.featured).map((post) => {
-                        const formatDate = (dateStr) => {
-                            const date = new Date(dateStr + 'T00:00:00');
-                            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-                        };
-
-                        return (
+                    {BLOG_POSTS.filter((p) => p.featured).map((post) => (
                             <ScrollReveal key={post.slug}>
                                 <Link to={`/blog/${post.slug}`} className="group block bg-[#EDEBE8] dark:bg-[#111111] card-oasis overflow-hidden">
                                     <div className="p-8 md:p-12">
@@ -596,14 +562,12 @@ const LandingPage = () => {
                                     </div>
                                 </Link>
                             </ScrollReveal>
-                        );
-                    })}
+                    ))}
                 </div>
             </section>
 
-            <Footer variant="enterprise" />
-        </div>
-    );
+    </PageLayout>
+  );
 };
 
 export default LandingPage;

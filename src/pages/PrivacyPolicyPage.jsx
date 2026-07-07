@@ -1,26 +1,20 @@
-import React, { useEffect } from 'react';
-import Navigation from '../components/layout/Navigation.jsx';
-import Footer from '../components/layout/Footer.jsx';
+import PageLayout from '../components/layout/PageLayout.jsx';
+import { usePageMeta } from '../hooks/usePageMeta.jsx';
+import { PAGE_META } from '../config/pageMeta.js';
 import privacyHtml from '../content/privacy-policy.html?raw';
 
 const PrivacyPolicyPage = () => {
-    useEffect(() => {
-        document.title = "Aseryx | Privacy Policy";
-    }, []);
+  usePageMeta({ ...PAGE_META['/privacy'], path: '/privacy' });
 
-    return (
-        <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-brand-orange selection:text-black overflow-x-hidden">
-            <Navigation />
-
-            <main id="main-content" className="pt-24 pb-16 px-4 md:px-8">
-                <div className="max-w-4xl mx-auto bg-white rounded-lg p-6 md:p-12">
-                    <div dangerouslySetInnerHTML={{ __html: privacyHtml }} />
-                </div>
-            </main>
-
-            <Footer />
+  return (
+    <PageLayout>
+      <main id="main-content" className="pt-24 pb-16 px-4 md:px-8">
+        <div className="max-w-4xl mx-auto bg-[var(--bg-card)] rounded-lg p-6 md:p-12 border border-[var(--border-color)] legal-document">
+          <div dangerouslySetInnerHTML={{ __html: privacyHtml }} />
         </div>
-    );
+      </main>
+    </PageLayout>
+  );
 };
 
 export default PrivacyPolicyPage;
