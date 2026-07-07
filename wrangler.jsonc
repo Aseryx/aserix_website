@@ -2,5 +2,8 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "aseryx-website",
   "compatibility_date": "2026-01-01",
-  "pages_build_output_dir": "dist"
+  "pages_build_output_dir": "dist",
+  "build": {
+    "command": "npm run build"
+  }
 }
