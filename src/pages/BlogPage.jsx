@@ -16,7 +16,7 @@ const BlogPage = () => {
   return (
     <PageLayout>
       {featured && (
-        <section id="main-content" className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-8 grid-bg">
+        <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 md:px-8 grid-bg">
           <div className="max-w-7xl mx-auto relative z-10">
             <p className="font-mono text-brand-orange text-xs tracking-widest uppercase mb-12 animate-fade-in">Blog</p>
 

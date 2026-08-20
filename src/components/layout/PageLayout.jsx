@@ -1,10 +1,15 @@
 import Navigation from './Navigation.jsx';
 import Footer from './Footer.jsx';
 
-const PageLayout = ({ children, mainId = 'main-content' }) => (
+const PageLayout = ({ children }) => (
   <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans selection:bg-brand-orange selection:text-black overflow-x-hidden">
+    <a href="#main-content" className="skip-link">
+      Skip to main content
+    </a>
     <Navigation />
-    {mainId ? <div id={mainId}>{children}</div> : children}
+    <main id="main-content" tabIndex={-1}>
+      {children}
+    </main>
     <Footer />
   </div>
 );

@@ -14,7 +14,7 @@ const DatasetsPage = () => {
 
   return (
     <PageLayout>
-      <section id="main-content" className="relative min-h-[60vh] flex items-center pt-32 pb-24 grid-bg">
+      <section className="relative min-h-[60vh] flex items-center pt-32 pb-24 grid-bg">
         <div className="absolute inset-0 z-0 overflow-hidden bg-[var(--bg-primary)]">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,122,77,0.08),transparent_50%)]" />
           <ParticlesBackground />

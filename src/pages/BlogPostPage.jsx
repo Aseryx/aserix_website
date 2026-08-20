@@ -43,7 +43,7 @@ const BlogPostPage = () => {
   }
 
   return (
-    <PageLayout mainId={null}>
+    <PageLayout>
       <article className="relative pt-28 pb-8 md:pt-36 md:pb-12 px-4 md:px-8 grid-bg">
         <div className="max-w-3xl mx-auto relative z-10">
           <Link

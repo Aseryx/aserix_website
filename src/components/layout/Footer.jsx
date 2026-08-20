@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Linkedin, ArrowUpRight } from 'lucide-react';
 import { TALLY } from '../../config/tally.js';
+import AseryxLogo from '../common/AseryxLogo.jsx';
 
 const XLogo = ({ className }) => (
   <svg className={className} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -14,9 +15,8 @@ const Footer = () => (
       <div className="section-divider pt-12 md:pt-16 pb-12 md:pb-16">
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
           <div className="col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6 hover:opacity-80 transition-opacity">
-              <img src="/aseryx.png" alt="Aseryx" className="w-10 h-10 object-contain" width="40" height="40" />
-              <span className="text-lg font-medium tracking-tight text-[var(--text-primary)]">Aseryx</span>
+            <Link to="/" className="inline-flex items-center mb-6 hover:opacity-80 transition-opacity">
+              <AseryxLogo className="h-6" />
             </Link>
             <div className="flex items-center gap-3">
               <a

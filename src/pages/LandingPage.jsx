@@ -83,7 +83,7 @@ const LandingPage = () => {
 
   return (
     <PageLayout>
-      <section id="main-content" className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 md:pt-32 md:pb-24 grid-bg overflow-hidden">
+      <section className="relative min-h-screen flex flex-col justify-center pt-24 pb-16 md:pt-32 md:pb-24 grid-bg overflow-hidden">
                 {/* Background elements */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,122,77,0.06),transparent_50%)]" />
