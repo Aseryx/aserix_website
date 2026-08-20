@@ -13,7 +13,7 @@ const PartnersPage = () => {
   return (
     <PageLayout>
 
-            <section id="main-content" className="relative min-h-screen flex items-center pt-32 pb-24 grid-bg">
+            <section className="relative min-h-screen flex items-center pt-32 pb-24 grid-bg">
                 <div className="absolute inset-0 z-0 overflow-hidden bg-[#F9F8F6] dark:bg-[#0a0a0a]">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,122,77,0.08),transparent_50%)]" />
                     <ParticlesBackground />

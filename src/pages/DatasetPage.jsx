@@ -29,7 +29,7 @@ const DatasetPage = () => {
   }));
 
   return (
-    <PageLayout mainId={null}>
+    <PageLayout>
       <div className="pt-24 md:pt-28">
         <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 border-b border-[var(--border-color)]">
           <nav aria-label="Breadcrumb">

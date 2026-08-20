@@ -8,11 +8,11 @@ const TermsOfUsePage = () => {
 
   return (
     <PageLayout>
-      <main id="main-content" className="pt-24 pb-16 px-4 md:px-8">
+      <div className="pt-24 pb-16 px-4 md:px-8">
         <div className="max-w-4xl mx-auto bg-[var(--bg-card)] rounded-lg p-6 md:p-12 border border-[var(--border-color)] legal-document">
           <div dangerouslySetInnerHTML={{ __html: termsHtml }} />
         </div>
-      </main>
+      </div>
     </PageLayout>
   );
 };

@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowUpRight, Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { TALLY } from '../../config/tally.js';
+import AseryxLogo from '../common/AseryxLogo.jsx';
 
 const focusRing = 'focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-[var(--bg-primary)] rounded';
 
@@ -87,9 +88,8 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${scrolled || isMobileMenuOpen ? 'bg-white/90 dark:bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-[var(--border-color)]' : ''}`}>
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-6 flex items-center justify-between">
-        <Link to="/" className={`flex items-center gap-3 hover:opacity-80 transition-opacity ${focusRing}`} onClick={() => setIsMobileMenuOpen(false)}>
-          <img src="/aseryx.png" alt="Aseryx" className="w-12 h-12 object-contain" width="48" height="48" />
-          <span className="text-lg font-medium tracking-tight text-[var(--text-primary)]">Aseryx</span>
+        <Link to="/" className={`flex items-center hover:opacity-80 transition-opacity ${focusRing}`} onClick={() => setIsMobileMenuOpen(false)}>
+          <AseryxLogo className="h-6 md:h-7" />
         </Link>
 
         <div className="hidden md:flex items-center gap-4 md:gap-6">
