@@ -31,35 +31,8 @@ export const AnimatedProgress = ({ label, value, delay = 0 }) => {
     );
 };
 
-export const AnimatedScore = ({ value, duration = 1500 }) => {
-    const [count, setCount] = useState(0);
-    const [ref, setRef] = useState(null);
-
-    useEffect(() => {
-        if (!ref) return;
-        const observer = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting) {
-                let start = null;
-                const step = (timestamp) => {
-                    if (!start) start = timestamp;
-                    const progress = Math.min((timestamp - start) / duration, 1);
-                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                    setCount(Math.floor(easeOutQuart * value));
-                    if (progress < 1) {
-                        window.requestAnimationFrame(step);
-                    } else {
-                        setCount(value);
-                    }
-                };
-                window.requestAnimationFrame(step);
-                observer.disconnect();
-            }
-        }, { threshold: 0.1 });
-        observer.observe(ref);
-        return () => observer.disconnect();
-    }, [ref, value, duration]);
-
-    return <span ref={setRef}>{count}</span>;
+export const AnimatedScore = ({ value }) => {
+    return <span>{value}</span>;
 };
 
 export const AppraisalCertificate = () => {
@@ -69,8 +42,8 @@ export const AppraisalCertificate = () => {
             <div className="p-6 md:p-8 flex items-start justify-between">
                 <div>
                     <p className="text-[10px] font-mono text-[#A3A3A3] dark:text-gray-500 uppercase tracking-widest mb-1.5">Quality Certificate</p>
-                    <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] dark:text-white mb-1">Transaction Logs</h3>
-                    <p className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">APR-2026-0038 &bull; completed 2 days ago</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] dark:text-white mb-1">De-identified Claims Records</h3>
+                    <p className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">APR-2026-0038 &bull; Healthcare appraisal</p>
                 </div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#EAF5E5] dark:bg-[#1A2E1C] rounded-full">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#2E7D32] dark:bg-[#4CAF50]" />
@@ -107,7 +80,7 @@ export const AppraisalCertificate = () => {
             {/* Bottom Footer */}
             <div className="p-4 md:px-8 md:py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">
-                    Institutional &bull; Banking
+                    Institutional &bull; Healthcare &bull; Finance
                 </div>
                 <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
                     <div className="hidden sm:flex items-center gap-1.5 mr-2">

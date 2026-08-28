@@ -28,16 +28,16 @@ const PartnersPage = () => {
                                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-orange opacity-75"></span>
                                     <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-orange"></span>
                                 </span>
-                                FOR DATA PROVIDERS
+                                FOR INSTITUTIONS
                             </div>
 
                             <h1 className="font-display text-4xl sm:text-5xl lg:text-[clamp(3.5rem,6vw,5rem)] leading-[0.9] tracking-tight mb-8">
-                                <span className="block">Your data is already</span>
-                                <span className="block italic text-[#6B7280] dark:text-gray-400">in demand.</span>
+                                <span className="block">In-place appraisal</span>
+                                <span className="block italic text-[#6B7280] dark:text-gray-400">for data you cannot hand over.</span>
                             </h1>
 
                             <p className="text-[#6B7280] dark:text-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
-                                Know what your data is worth. Assetize it without giving up control. Keep 80 to 85%.
+                                Built for finance and healthcare holders. Appraise proprietary datasets in your environment, produce a score counterparties trust, and license without surrendering custody.
                             </p>
                             
                             <div className="flex flex-col sm:flex-row gap-4">
@@ -47,7 +47,7 @@ const PartnersPage = () => {
                                     rel="noopener noreferrer"
                                     className="group px-8 py-4 bg-brand-orange text-black font-medium text-sm uppercase tracking-wide hover:bg-white transition-colors flex items-center justify-center gap-3"
                                 >
-                                    Talk to Our Team
+                                    Request an Appraisal
                                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                                 </a>
                             </div>
@@ -59,20 +59,20 @@ const PartnersPage = () => {
                              <div className="relative border border-gray-200 dark:border-gray-800 bg-white dark:bg-[#0f0f0f] p-8">
                                 <div className="space-y-8">
                                     <div>
-                                        <p className="font-mono text-[10px] text-[#6B7280] dark:text-gray-400 uppercase tracking-widest mb-2">Quality Score</p>
+                                        <p className="font-mono text-[10px] text-[#6B7280] dark:text-gray-400 uppercase tracking-widest mb-2">Richness Score</p>
                                         <div className="flex items-baseline gap-2">
-                                            <span className="text-4xl text-[#1A1A1A] dark:text-white font-display">0 to 100</span>
-                                            <span className="text-sm text-[#6B7280] dark:text-gray-400">verified before you price</span>
+                                            <span className="text-4xl text-[#1A1A1A] dark:text-white font-display">0–100</span>
+                                            <span className="text-sm text-[#6B7280] dark:text-gray-400">verified quality score</span>
                                         </div>
                                         <div className="w-full h-1 bg-gray-200 dark:bg-gray-800 mt-4 overflow-hidden">
                                             <div className="w-[87%] h-full bg-brand-orange"></div>
                                         </div>
                                     </div>
                                     <div>
-                                        <p className="font-mono text-[10px] text-[#6B7280] dark:text-gray-400 uppercase tracking-widest mb-2">Revenue Share</p>
+                                        <p className="font-mono text-[10px] text-[#6B7280] dark:text-gray-400 uppercase tracking-widest mb-2">Custody</p>
                                         <div className="flex items-baseline gap-2">
-                                            <span className="text-4xl text-[#1A1A1A] dark:text-white font-display">80 to 85%</span>
-                                            <span className="text-sm text-[#6B7280] dark:text-gray-400">revenue to you</span>
+                                            <span className="text-4xl text-[#1A1A1A] dark:text-white font-display">Zero</span>
+                                            <span className="text-sm text-[#6B7280] dark:text-gray-400">custody transfer</span>
                                         </div>
                                         <div className="w-full h-1 bg-gray-200 dark:bg-gray-800 mt-4 overflow-hidden">
                                             <div className="w-full h-full bg-brand-orange animate-pulse"></div>
@@ -138,13 +138,13 @@ const PartnersPage = () => {
                                 </div>
                                 <div className="p-8 md:p-10 flex-1 border-t border-brand-orange/20 dark:border-brand-orange/30">
                                     <p className="font-mono text-xs text-brand-orange mb-6 uppercase tracking-wider">The New Way</p>
-                                    <h3 className="font-display text-2xl md:text-3xl text-[#1A1A1A] dark:text-white mb-6">Data Assetization</h3>
+                                    <h3 className="font-display text-2xl md:text-3xl text-[#1A1A1A] dark:text-white mb-6">In-Place Appraisal</h3>
                                     <ul className="space-y-4 text-[#6B7280] dark:text-gray-400 text-sm md:text-base">
-                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Verified quality score (0 to 100) before you set a price</span></li>
+                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Verified quality score (0–100) before any license commitment</span></li>
                                         <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>You approve every access request</span></li>
-                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>80 to 85% recurring revenue per training run</span></li>
+                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Licensing is the outcome of appraisal, not a storefront</span></li>
                                         <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Zero custody. Enforced by architecture, not by contracts</span></li>
-                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Your terms. Your price.</span></li>
+                                        <li className="flex gap-3 items-start"><Check className="w-5 h-5 text-brand-orange shrink-0 mt-0.5" /> <span>Your terms. Your approval.</span></li>
                                     </ul>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@ const PartnersPage = () => {
                                  <div className="md:col-span-8">
                                      <h3 className="font-display text-3xl text-[#1A1A1A] dark:text-white mb-4 group-hover:translate-x-2 transition-transform duration-300">Hedge Funds & Syndicates</h3>
                                      <p className="text-[#6B7280] dark:text-gray-400 text-lg leading-relaxed max-w-2xl">
-                                        Monetize deal flow, trade logs, and performance data. Prove quality to AI buyers without revealing positions or strategy.
+                                        Appraise deal flow, trade logs, and performance data in place. Prove quality to counterparties without revealing positions or strategy.
                                      </p>
                                  </div>
                              </div>
@@ -191,7 +191,7 @@ const PartnersPage = () => {
                                  <div className="md:col-span-8">
                                      <h3 className="font-display text-3xl text-[#1A1A1A] dark:text-white mb-4 group-hover:translate-x-2 transition-transform duration-300">Clinics & Health Systems</h3>
                                      <p className="text-[#6B7280] dark:text-gray-400 text-lg leading-relaxed max-w-2xl">
-                                        Patient data never leaves your systems. Get a verified quality score, set your price, and earn recurring revenue on every training run.
+                                        Patient data never leaves your systems. Get a verified quality score in place and license access on your terms.
                                      </p>
                                  </div>
                              </div>
@@ -224,17 +224,17 @@ const PartnersPage = () => {
             <section className="py-32 px-4 md:px-8 bg-[#F9F8F6] dark:bg-[#050505] border-t border-gray-200 dark:border-gray-900 grid-bg">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="font-display text-4xl md:text-6xl leading-[0.9] tracking-tight mb-8">
-                        Your data has value.<br/>
-                        <span className="italic text-brand-orange">Start earning from it.</span>
+                        Appraise where your data sits.<br/>
+                        <span className="italic text-brand-orange">License with proof.</span>
                     </h2>
-                    <p className="text-[#6B7280] dark:text-gray-400 mb-12 text-lg">Keep full custody. We handle the rest.</p>
+                    <p className="text-[#6B7280] dark:text-gray-400 mb-12 text-lg">Custody never transfers. Counterparties trust the score.</p>
                     <a
                         href={TALLY.appraisal}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center px-8 py-4 bg-brand-orange text-black font-medium hover:bg-white transition-colors text-sm uppercase tracking-wide"
                     >
-                        Talk to Our Team
+                        Request an Appraisal
                         <ArrowUpRight className="ml-2 w-4 h-4" />
                     </a>
                 </div>

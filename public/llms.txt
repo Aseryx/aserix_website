@@ -1,38 +1,33 @@
-# Aseryx - Verified Data Licensing Protocol for AI
+# Aseryx - Data Appraisal Protocol
 
 ## Company Overview
-Aseryx is a verified data licensing protocol that enables institutions to monetize proprietary data without surrendering custody. Built for healthcare institutions, hedge funds, and data providers who need to share verified insights without exposing raw data.
+Aseryx is the protocol for enterprise data appraisal and licensing. We help finance and healthcare institutions appraise proprietary datasets in their own environment, produce a verified quality score counterparties can trust, and license access without surrendering custody.
 
 ## Value Proposition
-- **Zero Custody Transfer**: Data never leaves the owner's control
-- **Mathematical Verification**: Proofs replace legal agreements
-- **Revenue Share**: 80-85% of revenue goes to data providers
-- **Full Approval Control**: Owners approve or decline every access request
+- **In-Place Appraisal**: Appraisal runs in the holder's environment
+- **Zero Custody Transfer**: Raw data never leaves the institution's control
+- **Trusted Quality Score**: A 0–100 richness score and readiness gate a counterparty can verify
+- **Provider Control**: Institutions approve every access request
 
-## Target Markets
-- **Healthcare**: Hospitals, clinics, EHR systems, MedTech companies
-- **Finance**: Hedge funds, syndicates, proprietary trading firms
-- **Research**: Academic institutions, research organizations
-- **Legal**: Legal archives, compliance datasets
-- **Industrial**: Sensor arrays, IoT data providers
+## Primary Verticals
+- **Healthcare**: Hospitals, clinics, EHR systems, and health systems with data that cannot leave their infrastructure
+- **Finance**: Hedge funds, syndicates, and financial institutions with proprietary operational and fraud datasets
 
 ## Technology
-- Zero-knowledge proofs for data verification
-- Cryptographic access enforcement
-- On-chain provenance tracking
-- No PHI custody or breach liability
+- Zero-knowledge proofs for data quality verification
+- Verified access enforcement
+- Client-side proof generation; custody never transfers
 
 ## Key Use Cases
 1. **Fund Performance Verification**: Prove returns without revealing positions
-2. **Fraud Pattern Detection**: Train models on verified fraud events
-3. **Women's Health Research**: Aggregate cycle patterns without exposing identities
-4. **Clinical Outcomes**: Verify treatment efficacy without patient data transfer
+2. **Fraud Pattern Detection**: Verify fraud signal quality without copying transaction data
+3. **Clinical Outcomes**: Verify treatment efficacy without patient data transfer
+4. **De-identified Health Research**: Appraise research-ready datasets in place
 
 ## Contact
 - Website: https://aseryx.xyz/
-- Partners: https://aseryx.xyz/partners
-- Data Requests: https://tally.so/r/dWdWQq
-- Partner Inquiries: https://tally.so/r/eq6aVq
+- For Institutions: https://aseryx.xyz/partners
+- Request an Appraisal: https://tally.so/r/eq6aVq
 
 ## Brand Keywords
-Aseryx, verified data licensing protocol, zero-knowledge data, cryptographic verification, data monetization, AI training data, healthcare data licensing, finance data verification, privacy-preserving data sharing
+Aseryx, data appraisal protocol, data licensing protocol, zero-knowledge data verification, privacy-preserving data sharing, healthcare data appraisal, finance data verification, institutional data licensing

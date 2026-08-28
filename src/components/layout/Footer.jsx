@@ -45,12 +45,12 @@ const Footer = () => (
             <ul className="space-y-3">
               <li>
                 <a
-                  href={TALLY.contact}
+                  href={TALLY.appraisal}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors inline-flex items-center gap-1"
                 >
-                  Get in Touch
+                  Request an Appraisal
                   <ArrowUpRight className="w-3 h-3" />
                 </a>
               </li>
@@ -73,11 +73,11 @@ const Footer = () => (
           </div>
 
           <div>
-            <h4 className="text-sm font-medium text-[var(--text-primary)] mb-4">For Builders</h4>
+            <h4 className="text-sm font-medium text-[var(--text-primary)] mb-4">For Institutions</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/buyers" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                  AI Builders
+                <Link to="/partners" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+                  Finance &amp; Healthcare
                 </Link>
               </li>
             </ul>

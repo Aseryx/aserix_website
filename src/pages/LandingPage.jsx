@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Shield, BadgeCheck, Lock } from 'lucide-react';
 import { ScrollReveal } from '../hooks/useScrollReveal.jsx';
@@ -13,33 +12,24 @@ import { GeometricShield, GeometricCube, GeometricSphere, GeometricToroid, Geome
 import { usePageMeta } from '../hooks/usePageMeta.jsx';
 import { PAGE_META } from '../config/pageMeta.js';
 import { TALLY } from '../config/tally.js';
-const ROTATING_TEXTS = [
-    'We prove it.',
-    'You assetize it.',
-];
 
-
-/* -------------------------------------------------------
-   USE CASE CATEGORIES
-   ------------------------------------------------------- */
-
-const USE_CASES = ['Genomic Sequence Modeling', 'Algorithmic Fraud Detection', 'Cost Engine Modeling', 'Predictive Maintenance Systems', 'High-Frequency Trading Alpha'];
+const USE_CASES = ['Algorithmic Fraud Detection', 'Clinical Outcomes Research', 'Fund Performance Verification', 'De-identified EHR Appraisal', 'Proprietary Trading Signals'];
 
 const UNLOCKS = [
     {
         icon: BadgeCheck,
-        title: 'Cryptographic Data Appraisal',
-        description: 'Every dataset undergoes a cryptographic appraisal to score information richness. Buyers see proof, not promises.',
+        title: 'In-Place Appraisal',
+        description: 'Every dataset undergoes in-place appraisal to score information richness. Counterparties see verified proof, not promises.',
     },
     {
         icon: Shield,
-        title: 'Data Assetization',
-        description: 'Turn verified datasets into monetizable assets without transferring custody. Your data stays in your infrastructure.',
+        title: 'Custody Never Transfers',
+        description: 'Appraise and license proprietary data without copying it out. Your data stays in your infrastructure.',
     },
     {
         icon: Lock,
-        title: 'Compliance-Ready Architecture',
-        description: 'Zero-custody verification aligns with GDPR, HIPAA, and the EU AI Act by design. Data never moves.',
+        title: 'Built for Regulated Environments',
+        description: 'Designed for GDPR- and HIPAA-regulated institutions. Custody-preserving verification by architecture.',
     },
 ];
 
@@ -54,32 +44,23 @@ const UNLOCKS = [
 const LANDING_FAQS = [
   {
     question: 'How does the appraisal work if the data never leaves?',
-    answer: 'Our protocol runs directly in your environment. We use cryptographic techniques to verify specific quality dimensions and generate an information richness score, returning only the verified proof and never the raw data itself.',
+    answer: 'The protocol runs in your environment. Verified techniques score quality dimensions and produce an information richness score, returning only the proof — raw data never leaves your control.',
     delay: 100,
   },
   {
     question: 'What happens if my dataset fails Layer 1?',
-    answer: "If a dataset fails the initial provenance and readiness gate, it simply isn't issued a Verifiable Credential. You receive a report on what minimum requirements were not met so you can address them.",
+    answer: "If a dataset fails the initial provenance and readiness gate, it does not receive a commercial quality score. You receive a report on what minimum requirements were not met so you can address them.",
     delay: 200,
   },
   {
     question: 'Are you compliant with GDPR and HIPAA?',
-    answer: 'Yes. Because the data never changes custody or moves to our servers, the Aseryx protocol inherently aligns with strict data residency and privacy regulations.',
+    answer: 'Aseryx is designed for GDPR- and HIPAA-regulated environments. Because custody never transfers, the protocol supports strict data residency and privacy requirements.',
     delay: 300,
   },
 ];
 
 const LandingPage = () => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
-
   usePageMeta({ ...PAGE_META['/'], path: '/' });
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTextIndex((prev) => (prev + 1) % ROTATING_TEXTS.length);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <PageLayout>
@@ -108,22 +89,12 @@ const LandingPage = () => {
                         NOW IN BETA
                     </div>
 
-                    <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6 animate-fade-up delay-100 opacity-0 max-w-3xl" style={{ animationFillMode: 'forwards' }}>
-                        Your data is an asset.<br />
-                        <span className="text-rotate-wrapper inline-block align-baseline">
-                            {ROTATING_TEXTS.map((text, index) => (
-                                <span
-                                    key={text}
-                                    className={`text-rotate-item text-brand-orange italic ${index === currentTextIndex ? 'active' : ''}`}
-                                >
-                                    {text}
-                                </span>
-                            ))}
-                        </span>
+                    <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6 animate-fade-up delay-100 opacity-0 max-w-4xl" style={{ animationFillMode: 'forwards' }}>
+                        In-place appraisal for data you <span className="text-brand-orange italic">cannot hand over.</span>
                     </h1>
 
                     <p className="text-lg md:text-xl text-[#6B7280] dark:text-gray-400 leading-relaxed mb-10 max-w-2xl animate-fade-up delay-200 opacity-0" style={{ animationFillMode: 'forwards' }}>
-                        Aseryx runs a cryptographic appraisal on your dataset without your data ever leaving your infrastructure. AI builders see a verified score. You assetize your data on your terms.
+                        Aseryx appraises proprietary datasets in place for finance and healthcare institutions. Produce a quality score counterparties trust — and license access without surrendering custody.
                     </p>
 
                     <div className="animate-fade-up delay-300 opacity-0 flex flex-wrap gap-4" style={{ animationFillMode: 'forwards' }}>
@@ -148,11 +119,13 @@ const LandingPage = () => {
                     <div className="animate-fade-up delay-400 opacity-0 mt-8 flex items-center gap-3 text-[#6B7280] dark:text-gray-500" style={{ animationFillMode: 'forwards' }}>
                         <span className="text-xs font-mono tracking-wider uppercase">Built for</span>
                         <span className="w-px h-3 bg-[#D1D5DB] dark:bg-gray-700" />
+                        <span className="text-xs tracking-wide">Finance</span>
+                        <span className="w-px h-3 bg-[#D1D5DB] dark:bg-gray-700" />
+                        <span className="text-xs tracking-wide">Healthcare</span>
+                        <span className="w-px h-3 bg-[#D1D5DB] dark:bg-gray-700" />
                         <span className="text-xs tracking-wide">GDPR</span>
                         <span className="w-px h-3 bg-[#D1D5DB] dark:bg-gray-700" />
                         <span className="text-xs tracking-wide">HIPAA</span>
-                        <span className="w-px h-3 bg-[#D1D5DB] dark:bg-gray-700" />
-                        <span className="text-xs tracking-wide">EU AI Act</span>
                     </div>
                 </div>
             </section>
@@ -248,9 +221,9 @@ const LandingPage = () => {
                                 </div>
                                 <div className="p-6 md:p-8 flex-1 border-t border-[#E8E4DE] dark:border-[#1F2937]">
                                     <p className="font-mono text-xs text-[#6B7280] dark:text-gray-500 mb-4 uppercase tracking-wider">01 / Connect</p>
-                                    <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Local Infrastructure</h3>
+                                    <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Your Environment</h3>
                                     <p className="text-[#6B7280] dark:text-gray-400 text-sm leading-relaxed">
-                                        Connect to our enclave. Your data stays local. You control access.
+                                        Pair with Aseryx Runtime in your infrastructure. Your data stays local. You control access.
                                     </p>
                                 </div>
                             </div>
@@ -263,9 +236,9 @@ const LandingPage = () => {
                                 </div>
                                 <div className="p-6 md:p-8 flex-1 border-t border-brand-orange/20 dark:border-brand-orange/30">
                                     <p className="font-mono text-xs text-brand-orange mb-4 uppercase tracking-wider">02 / Appraise</p>
-                                    <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Cryptographic Proof</h3>
+                                    <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Verified Proof</h3>
                                     <p className="text-[#6B7280] dark:text-gray-400 text-sm leading-relaxed mb-4">
-                                        We verify provenance and score information richness. No raw data is ever read.
+                                        We verify provenance and score information richness. Custody never transfers.
                                     </p>
                                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-brand-orange/10 border border-brand-orange/20">
                                         <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse"></div>
@@ -281,10 +254,10 @@ const LandingPage = () => {
                                     <GeometricToroid className="w-32 h-32 md:w-36 md:h-36 text-[#6B7280] group-hover:scale-105 transition-transform duration-500" />
                                 </div>
                                 <div className="p-6 md:p-8 flex-1 border-t border-[#E8E4DE] dark:border-[#1F2937]">
-                                    <p className="font-mono text-xs text-[#6B7280] dark:text-gray-500 mb-4 uppercase tracking-wider">03 / Assetize</p>
+                                    <p className="font-mono text-xs text-[#6B7280] dark:text-gray-500 mb-4 uppercase tracking-wider">03 / License</p>
                                     <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">On Your Terms</h3>
                                     <p className="text-[#6B7280] dark:text-gray-400 text-sm leading-relaxed mb-4">
-                                        AI builders see a verified score. You monetize access.
+                                        Counterparties trust the score. You approve every license. Licensing is the outcome of appraisal.
                                     </p>
                                 </div>
                             </div>
@@ -300,10 +273,10 @@ const LandingPage = () => {
                         <p className="font-mono text-brand-orange text-xs tracking-widest uppercase mb-4">Data Appraisal</p>
                         <h2 className="font-display text-3xl md:text-4xl lg:text-5xl leading-[1.1] tracking-tight max-w-2xl">
                             Know exactly what your dataset{' '}
-                            <span className="italic text-[#6B7280] dark:text-gray-400">is worth to an AI builder.</span>
+                            <span className="italic text-[#6B7280] dark:text-gray-400">is worth to a counterparty.</span>
                         </h2>
                         <p className="text-[#6B7280] dark:text-gray-400 text-base md:text-lg leading-relaxed mt-6 max-w-2xl">
-                            Every dataset on Aseryx goes through a two-layer cryptographic appraisal. Provenance verified. Richness scored. No raw data is transmitted at any point.
+                            Every appraisal goes through a two-layer verified score. Provenance verified. Richness scored. Custody never transfers.
                         </p>
                     </div>
 
@@ -333,7 +306,7 @@ const LandingPage = () => {
                                         <p className="font-mono text-xs text-brand-orange mb-4 uppercase tracking-wider">01 / Layer 1</p>
                                         <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Provenance and Readiness</h3>
                                         <p className="text-[#6B7280] dark:text-gray-400 text-sm leading-relaxed mb-5">
-                                            We verify where the data came from and whether it meets minimum quality standards. A cryptographically signed Verifiable Credential is issued on full pass.
+                                            We verify where the data came from and whether it meets minimum quality standards. A verified readiness proof is issued on full pass.
                                         </p>
                                         <div className="flex flex-wrap gap-2">
                                             {['Completeness', 'Accuracy', 'Uniqueness', 'Authenticity'].map((tag) => (
@@ -352,7 +325,7 @@ const LandingPage = () => {
                                         <p className="font-mono text-xs text-brand-orange mb-4 uppercase tracking-wider">02 / Layer 2</p>
                                         <h3 className="font-display text-xl md:text-2xl text-[#1A1A1A] dark:text-white mb-3">Information Richness</h3>
                                         <p className="text-[#6B7280] dark:text-gray-400 text-sm leading-relaxed mb-5">
-                                            A score across 11+ dimensions computed via cryptography. You and the buyer receive a verifiable breakdown of what makes your data useful before any commitment.
+                                            A score across multiple dimensions computed via cryptography. You and the counterparty receive a verifiable breakdown before any license commitment.
                                         </p>
                                         <div className="space-y-2">
                                             {[
@@ -382,7 +355,7 @@ const LandingPage = () => {
                     <div className="section-divider pt-8 md:pt-12 mb-16 md:mb-24">
                         <p className="font-mono text-brand-orange text-xs tracking-widest uppercase mb-4">Key Benefits</p>
                         <h2 className="font-display text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight">
-                            The economics of private data, <span className="italic text-[#6B7280] dark:text-gray-400">solved.</span>
+                            The protocol for private data, <span className="italic text-[#6B7280] dark:text-gray-400">solved.</span>
                         </h2>
                     </div>
 
@@ -393,7 +366,7 @@ const LandingPage = () => {
                                 <p className="font-mono text-brand-orange mb-4 tracking-widest">01 // ZERO CUSTODY</p>
                                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-[#1A1A1A] dark:text-white">Zero Custody Transfer</h3>
                                 <p className="text-[#6B7280] dark:text-gray-400 text-lg md:text-xl leading-relaxed">
-                                    Data stays in your infrastructure. Always. Monetize access without surrendering control over your most valuable asset.
+                                    Data stays in your infrastructure. Always. License access without surrendering control over your most valuable asset.
                                 </p>
                             </div>
                             <GeometricShield className="w-32 h-32 md:w-48 md:h-48 text-brand-orange flex-shrink-0" />
@@ -405,7 +378,7 @@ const LandingPage = () => {
                                 <p className="font-mono text-brand-orange mb-4 tracking-widest">02 // VERIFICATION</p>
                                 <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-[#1A1A1A] dark:text-white">Quality Proven</h3>
                                 <p className="text-[#6B7280] dark:text-gray-400 text-lg md:text-xl leading-relaxed">
-                                    Every dataset gets a verified appraisal. Buyers see mathematical proof before they commit, eliminating self-reported claims.
+                                    Every dataset gets a verified appraisal. Counterparties see mathematical proof before they commit, eliminating self-reported claims.
                                 </p>
                             </div>
                             <GeometricPrism className="w-32 h-32 md:w-48 md:h-48 text-brand-orange flex-shrink-0" />
@@ -414,10 +387,10 @@ const LandingPage = () => {
                         {/* Card 3 */}
                         <div className="sticky top-40 w-full h-auto min-h-[40vh] bg-brand-orange text-black border border-brand-orange p-8 md:p-12 lg:p-16 flex flex-col md:flex-row items-center justify-between gap-12 shadow-2xl origin-top transition-all card-oasis">
                             <div className="max-w-xl">
-                                <p className="font-mono text-black/60 mb-4 tracking-widest">03 // ECONOMICS</p>
-                                <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-black tracking-tight">80-85% Revenue</h3>
+                                <p className="font-mono text-black/60 mb-4 tracking-widest">03 // LICENSING</p>
+                                <h3 className="font-display text-3xl md:text-4xl lg:text-5xl mb-6 text-black tracking-tight">License With Proof</h3>
                                 <p className="text-black/80 text-lg md:text-xl leading-relaxed font-medium">
-                                    The vast majority of every monetization agreement goes directly to the data holder. Transparent, auditable, and recurring.
+                                    Appraisal is the starting point. Licensing is the outcome — with a score the other side trusts and approval you retain.
                                 </p>
                             </div>
                             <GeometricWave className="w-32 h-32 md:w-48 md:h-48 text-black/20 flex-shrink-0" />
@@ -501,7 +474,7 @@ const LandingPage = () => {
                             <span className="italic text-[#6B7280] dark:text-gray-400">what your data is worth.</span>
                         </h2>
                         <p className="text-[#6B7280] dark:text-gray-400 text-lg mb-10 max-w-xl mx-auto">
-                            Submit your dataset. You run the appraisal in your environment. You receive a Verifiable Credential and no data leaves your servers.
+                            Submit your dataset for appraisal. You run it in your environment. You receive a verified quality score — custody never transfers.
                         </p>
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                             <a
@@ -513,13 +486,6 @@ const LandingPage = () => {
                                 Request an Appraisal
                                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </a>
-                            <Link
-                                to="/buyers"
-                                className="group inline-flex items-center gap-3 px-8 py-4 border border-[#E5E5E5] dark:border-[#333] text-[#1A1A1A] dark:text-white font-medium hover:bg-[#F3F4F6] dark:hover:bg-[#1A1A1A] transition-colors text-sm uppercase tracking-wide"
-                            >
-                                For AI Builders
-                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                            </Link>
                         </div>
                     </ScrollReveal>
                 </div>
