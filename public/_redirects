@@ -1,4 +1,4 @@
 /buyers / 301
-/datasets / 301
-/dataset/* / 301
+/datasets /case-study/en-my-corpus 301
+/dataset/* /case-study/en-my-corpus 301
 /* /index.html 200

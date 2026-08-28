@@ -3,7 +3,8 @@ import { readFileSync, writeFileSync, rmSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath, pathToFileURL } from 'url';
 import BLOG_POSTS from '../src/data/blog/index.js';
-import { PAGE_META, metaForBlogPost } from '../src/config/pageMeta.js';
+import { getCaseStudyBySlug, getCaseStudySlugs } from '../src/data/appraisalCaseStudies.js';
+import { PAGE_META, metaForBlogPost, metaForCaseStudy } from '../src/config/pageMeta.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const distDir = resolve(__dirname, '../dist');
@@ -13,7 +14,8 @@ const STATIC_ROUTES = ['/', '/partners', '/privacy', '/terms', '/blog'];
 
 function getRoutes() {
   const blogRoutes = BLOG_POSTS.map((p) => `/blog/${p.slug}`);
-  return [...STATIC_ROUTES, ...blogRoutes];
+  const caseStudyRoutes = getCaseStudySlugs().map((slug) => `/case-study/${slug}`);
+  return [...STATIC_ROUTES, ...caseStudyRoutes, ...blogRoutes];
 }
 
 function resolveMeta(route) {
@@ -23,6 +25,12 @@ function resolveMeta(route) {
   if (blogMatch) {
     const post = BLOG_POSTS.find((p) => p.slug === blogMatch[1]);
     return post ? metaForBlogPost(post) : PAGE_META['/blog'];
+  }
+
+  const caseStudyMatch = route.match(/^\/case-study\/([^/]+)$/);
+  if (caseStudyMatch) {
+    const study = getCaseStudyBySlug(caseStudyMatch[1]);
+    return study ? metaForCaseStudy(study) : PAGE_META['/'];
   }
 
   return PAGE_META['/'];
