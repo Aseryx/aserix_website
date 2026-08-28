@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ArrowUpRight, Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { TALLY } from '../../config/tally.js';
 import AseryxLogo from '../common/AseryxLogo.jsx';
@@ -8,8 +8,9 @@ import AseryxLogo from '../common/AseryxLogo.jsx';
 const focusRing = 'focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-[var(--bg-primary)] rounded';
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home' },
+  { to: '/', label: 'Protocol' },
   { to: '/partners', label: 'For Institutions' },
+  { to: '/case-study/en-my-corpus', label: 'Case Study' },
   { to: '/blog', label: 'Blog' },
 ];
 
@@ -101,11 +102,10 @@ const Navigation = () => {
             href={TALLY.appraisal}
             target="_blank"
             rel="noopener noreferrer"
-            className={`group flex items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors ${focusRing} px-2 py-1`}
+            className={`px-4 py-2 bg-brand-orange text-black text-sm font-medium rounded hover:bg-white transition-colors ${focusRing}`}
             aria-label="Request an appraisal (opens in new tab)"
           >
             Request an Appraisal
-            <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </a>
           <button
             type="button"
@@ -148,13 +148,12 @@ const Navigation = () => {
             href={TALLY.appraisal}
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-base text-[var(--text-secondary)] hover:text-[var(--text-primary)] py-2 flex items-center gap-2 ${focusRing} px-2`}
+            className={`px-4 py-2 bg-brand-orange text-black text-sm font-medium rounded hover:bg-white transition-colors ${focusRing}`}
             onClick={() => setIsMobileMenuOpen(false)}
             role="menuitem"
             aria-label="Request an appraisal (opens in new tab)"
           >
             Request an Appraisal
-            <ArrowUpRight className="w-4 h-4" />
           </a>
           <button
             type="button"

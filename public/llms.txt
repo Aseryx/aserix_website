@@ -1,33 +1,41 @@
-# Aseryx - Data Appraisal Protocol
+# Aseryx - On-Prem Data Appraisal, Verification & Assetization Protocol
 
 ## Company Overview
-Aseryx is the protocol for enterprise data appraisal and licensing. We help finance and healthcare institutions appraise proprietary datasets in their own environment, produce a verified quality score counterparties can trust, and license access without surrendering custody.
+Aseryx is the protocol for on-prem data appraisal, verification, and assetization. Regulated institutions appraise proprietary datasets in their own environment, produce verified proof counterparties trust, and license access. Trapped data becomes a usable asset without surrendering custody.
+
+## Protocol Stack
+1. **Appraisal**: Score what proprietary data is worth to a counterparty (0–100 richness score, readiness gate)
+2. **Verification**: Produce verified proof of quality and provenance without moving raw data
+3. **Assetization**: License access on your terms; data becomes economically usable on-prem
 
 ## Value Proposition
-- **In-Place Appraisal**: Appraisal runs in the holder's environment
-- **Zero Custody Transfer**: Raw data never leaves the institution's control
-- **Trusted Quality Score**: A 0–100 richness score and readiness gate a counterparty can verify
+- **On-Prem Data**: Appraisal, verification, and assetization run in the holder's environment
+- **No Custody Transfer**: Raw data never leaves the institution's control
+- **Verified Score**: A quality score and readiness gate a counterparty can verify
 - **Provider Control**: Institutions approve every access request
 
-## Primary Verticals
-- **Healthcare**: Hospitals, clinics, EHR systems, and health systems with data that cannot leave their infrastructure
+## Example Verticals
 - **Finance**: Hedge funds, syndicates, and financial institutions with proprietary operational and fraud datasets
+- **Insurance**: Carriers and underwriters with proprietary claims and risk datasets
+- **Healthcare**: Hospitals, clinics, EHR systems, and health systems with data that cannot leave their infrastructure
 
 ## Technology
-- Zero-knowledge proofs for data quality verification
+- Verified on-prem data appraisal for data quality
 - Verified access enforcement
-- Client-side proof generation; custody never transfers
+- Runs in your environment; custody never transfers
 
 ## Key Use Cases
-1. **Fund Performance Verification**: Prove returns without revealing positions
-2. **Fraud Pattern Detection**: Verify fraud signal quality without copying transaction data
-3. **Clinical Outcomes**: Verify treatment efficacy without patient data transfer
-4. **De-identified Health Research**: Appraise research-ready datasets in place
+1. **EN–MY Translation Memory (case study)**: 4.6M segment pairs appraised on-prem, score 93/100 ([case study](https://aseryx.xyz/case-study/en-my-corpus))
+2. **Fund Performance Verification**: Prove returns without revealing positions
+3. **Fraud Pattern Detection**: Verify fraud signal quality without copying transaction data
+4. **Clinical Outcomes**: Verify treatment efficacy without patient data transfer
+5. **Claims Appraisal**: Score operational tables on-prem before agent or analytics use
 
 ## Contact
 - Website: https://aseryx.xyz/
+- Case Study: https://aseryx.xyz/case-study/en-my-corpus
 - For Institutions: https://aseryx.xyz/partners
 - Request an Appraisal: https://tally.so/r/eq6aVq
 
 ## Brand Keywords
-Aseryx, data appraisal protocol, data licensing protocol, zero-knowledge data verification, privacy-preserving data sharing, healthcare data appraisal, finance data verification, institutional data licensing
+Aseryx, on-prem data appraisal, on-prem data verification, on-prem data assetization, data licensing protocol, verified data quality, privacy-preserving data sharing, institutional data licensing

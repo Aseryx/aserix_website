@@ -55,6 +55,11 @@ const Footer = () => (
                 </a>
               </li>
               <li>
+                <Link to="/case-study/en-my-corpus" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
+                  Case Study
+                </Link>
+              </li>
+              <li>
                 <Link to="/blog" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
                   Blog
                 </Link>
@@ -77,7 +82,7 @@ const Footer = () => (
             <ul className="space-y-3">
               <li>
                 <Link to="/partners" className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors">
-                  Finance &amp; Healthcare
+                  For Institutions
                 </Link>
               </li>
             </ul>
