@@ -23,6 +23,12 @@ export const CASE_STUDIES = [
     certificateId: 'MAY-2026-EN-MY-001',
     certificateFooter: 'NLP • Parallel corpus • On-prem appraisal',
     overallScore: 93,
+    richnessDimensions: [
+      { label: 'Schema Depth', score: 96, desc: 'Field count and type diversity' },
+      { label: 'Statistical Power', score: 94, desc: 'Rows relative to dimensionality' },
+      { label: 'Information Density', score: 91, desc: 'Cardinality and entropy proxy' },
+      { label: 'Distribution Quality', score: 88, desc: 'Class balance across categoricals' },
+    ],
     scores: [
       { label: 'Completeness', value: 94 },
       { label: 'Uniqueness', value: 99 },
