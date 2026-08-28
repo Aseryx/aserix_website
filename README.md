@@ -1,6 +1,6 @@
 # Aseryx Website
 
-Marketing site for Aseryx — built with React, Vite, and Tailwind CSS, deployed to Cloudflare Pages.
+Marketing site for Aseryx — the protocol for in-place data appraisal and licensing. Built with React, Vite, and Tailwind CSS, deployed to Cloudflare Pages.
 
 ## Getting Started
 
@@ -48,18 +48,17 @@ Custom domains: `aseryx.xyz` (primary), `www.aseryx.xyz` (redirect to apex).
 
 ```
 aseryx_website/
-├── public/                 # Static assets, sitemap, robots.txt
+├── public/                 # Static assets, sitemap, robots.txt, llms.txt
 ├── scripts/
 │   └── prerender.mjs       # SSR prerender + per-route SEO injection
 ├── src/
 │   ├── components/
-│   │   ├── common/         # Shared UI (ParticlesBackground, FaqItem, RiskBand, …)
+│   │   ├── common/         # Shared UI (AppraisalCertificate, FaqItem, …)
 │   │   └── layout/         # Navigation, Footer, PageLayout
-│   ├── config/             # Tally URLs, page meta, routes
+│   ├── config/             # Tally URLs, page meta
 │   ├── content/            # Legal page HTML
 │   ├── data/
-│   │   ├── blog/           # Blog metadata + lazy-loaded content per post
-│   │   └── datasets.js     # Dataset catalog
+│   │   └── blog/           # Blog metadata + lazy-loaded content per post
 │   ├── hooks/              # usePageMeta, useScrollReveal
 │   ├── pages/              # Route-level page components
 │   ├── AppRoutes.jsx       # Shared route definitions
@@ -69,11 +68,21 @@ aseryx_website/
 └── wrangler.jsonc
 ```
 
+## Site routes
+
+| Route | Purpose |
+|-------|---------|
+| `/` | Home — in-place appraisal for finance & healthcare |
+| `/partners` | For Institutions |
+| `/blog` | Blog index and posts |
+| `/privacy`, `/terms` | Legal |
+
+Legacy catalog routes (`/buyers`, `/datasets`, `/dataset/*`) redirect to `/`.
+
 ## Adding Content
 
 - **Blog post:** Add metadata to `src/data/blog/index.js` and content to `src/data/blog/content/{slug}.js`
-- **Dataset:** Add an entry to `src/data/datasets.js`
-- **New page:** Create a page component, add the route in `AppRoutes.jsx`, and add SEO metadata in `src/config/pageMeta.js`
+- **New page:** Create a page component, add the route in `AppRoutes.jsx`, add SEO metadata in `src/config/pageMeta.js`, and add to `STATIC_ROUTES` in `scripts/prerender.mjs`
 
 ## License
 
