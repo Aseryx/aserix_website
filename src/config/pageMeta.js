@@ -1,19 +1,18 @@
+import { META } from '../content/siteCopy.js';
+
 /** Per-route SEO metadata used by usePageMeta and the prerender script */
 export const PAGE_META = {
   '/': {
-    title: 'Aseryx | Data Appraisal Protocol',
-    description:
-      'In-place data appraisal for finance and healthcare institutions. Prove data quality without moving it. Custody never transfers. Request an appraisal.',
+    title: META.siteTitle,
+    description: META.homeDescription,
   },
   '/partners': {
     title: 'Aseryx | For Institutions',
-    description:
-      'In-place appraisal for finance and healthcare data holders. Appraise proprietary datasets in your environment and license with a score counterparties trust.',
+    description: META.partnersDescription,
   },
   '/blog': {
     title: 'Aseryx | Blog',
-    description:
-      'Thinking on data appraisal, privacy-preserving verification, and institutional data economics.',
+    description: META.blogDescription,
   },
   '/privacy': {
     title: 'Aseryx | Privacy Policy',
@@ -32,12 +31,24 @@ export function metaForBlogPost(post) {
   };
 }
 
+export function metaForCaseStudy(study) {
+  return {
+    title: `${study.shortTitle} Appraisal | Aseryx Case Study`,
+    description: study.metaDescription,
+  };
+}
+
 export function resolvePageMeta(pathname) {
   if (PAGE_META[pathname]) return PAGE_META[pathname];
 
   const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
   if (blogMatch) {
     return null; // resolved at runtime with post data
+  }
+
+  const caseStudyMatch = pathname.match(/^\/case-study\/([^/]+)$/);
+  if (caseStudyMatch) {
+    return null; // resolved at runtime with case study data
   }
 
   return PAGE_META['/'];
