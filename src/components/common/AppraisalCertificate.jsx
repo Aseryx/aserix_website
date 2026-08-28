@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { BadgeCheck } from 'lucide-react';
 
 export const AnimatedProgress = ({ label, value, delay = 0 }) => {
@@ -35,15 +36,29 @@ export const AnimatedScore = ({ value }) => {
     return <span>{value}</span>;
 };
 
-export const AppraisalCertificate = () => {
+export const AppraisalCertificate = ({
+    title = 'EN–MY Translation Memory',
+    certificateId = 'MAY-2026-EN-MY-001',
+    subtitle = 'NLP • Parallel corpus • On-prem appraisal',
+    overallScore = 93,
+    scores = [
+        { label: 'Completeness', value: 94 },
+        { label: 'Uniqueness', value: 99 },
+        { label: 'Accuracy', value: 91 },
+        { label: 'Timeliness', value: 88 },
+    ],
+    footer = 'NLP • Parallel corpus • On-prem appraisal',
+    showActions = true,
+    proofHref = '/case-study/en-my-corpus',
+}) => {
     return (
         <div className="bg-white dark:bg-[#0f0f0f] rounded-xl overflow-hidden shadow-sm border border-[#E8E4DE] dark:border-[#1F2937] border-t-[3px] border-t-[#E85D22]">
             {/* Top Header */}
             <div className="p-6 md:p-8 flex items-start justify-between">
                 <div>
                     <p className="text-[10px] font-mono text-[#A3A3A3] dark:text-gray-500 uppercase tracking-widest mb-1.5">Quality Certificate</p>
-                    <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] dark:text-white mb-1">De-identified Claims Records</h3>
-                    <p className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">APR-2026-0038 &bull; Healthcare appraisal</p>
+                    <h3 className="text-xl md:text-2xl font-bold text-[#1A1A1A] dark:text-white mb-1">{title}</h3>
+                    <p className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">{certificateId} &bull; {subtitle}</p>
                 </div>
                 <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-[#EAF5E5] dark:bg-[#1A2E1C] rounded-full">
                     <div className="w-1.5 h-1.5 rounded-full bg-[#2E7D32] dark:bg-[#4CAF50]" />
@@ -53,12 +68,11 @@ export const AppraisalCertificate = () => {
 
             {/* Middle Content */}
             <div className="px-6 md:px-8 pb-8 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start border-b border-[#E8E4DE] dark:border-[#1F2937]">
-                {/* Score Left */}
                 <div className="flex flex-col items-center md:items-start flex-shrink-0 min-w-[120px]">
-                    <p className="text-[10px] font-mono text-[#A3A3A3] dark:text-gray-500 uppercase tracking-widest mb-2 hidden md:block">Quality Certificate</p>
+                    <p className="text-[10px] font-mono text-[#A3A3A3] dark:text-gray-500 uppercase tracking-widest mb-2 hidden md:block">Overall Score</p>
                     <div className="flex items-baseline gap-2 mb-1">
                         <span className="text-6xl md:text-7xl font-display tracking-tighter text-[#1A1A1A] dark:text-white leading-none">
-                            <AnimatedScore value={74} />
+                            <AnimatedScore value={overallScore} />
                         </span>
                     </div>
                     <span className="text-lg text-[#A3A3A3] dark:text-gray-500 font-mono mb-4">/ 100</span>
@@ -68,32 +82,26 @@ export const AppraisalCertificate = () => {
                     </div>
                 </div>
 
-                {/* Progress Bars Right */}
                 <div className="flex-1 w-full flex flex-col justify-center pt-2">
-                    <AnimatedProgress label="Completeness" value={80} delay={100} />
-                    <AnimatedProgress label="Uniqueness" value={76} delay={300} />
-                    <AnimatedProgress label="Accuracy" value={71} delay={500} />
-                    <AnimatedProgress label="Timeliness" value={66} delay={700} />
+                    {scores.map(({ label, value }, i) => (
+                        <AnimatedProgress key={label} label={label} value={value} delay={i * 200} />
+                    ))}
                 </div>
             </div>
 
-            {/* Bottom Footer */}
             <div className="p-4 md:px-8 md:py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">
-                    Institutional &bull; Healthcare &bull; Finance
-                </div>
-                <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
-                    <div className="hidden sm:flex items-center gap-1.5 mr-2">
-                        <BadgeCheck className="w-4 h-4 text-[#2E7D32] dark:text-[#4CAF50]" />
-                        <span className="text-[10px] font-bold text-[#2E7D32] dark:text-[#4CAF50] tracking-widest uppercase">Verified</span>
+                <div className="text-xs font-mono text-[#A3A3A3] dark:text-gray-500">{footer}</div>
+                {showActions && (
+                    <div className="flex flex-wrap items-center justify-end gap-2 sm:gap-3">
+                        <div className="hidden sm:flex items-center gap-1.5 mr-2">
+                            <BadgeCheck className="w-4 h-4 text-[#2E7D32] dark:text-[#4CAF50]" />
+                            <span className="text-[10px] font-bold text-[#2E7D32] dark:text-[#4CAF50] tracking-widest uppercase">Verified</span>
+                        </div>
+                        <Link to={proofHref} className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium border border-[#E8E4DE] dark:border-[#333] rounded hover:bg-[#F3F1EE] dark:hover:bg-[#1A1A1A] transition-colors bg-white dark:bg-[#0a0a0a] text-[#1A1A1A] dark:text-white whitespace-nowrap">
+                            View proof
+                        </Link>
                     </div>
-                    <button className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium border border-[#E8E4DE] dark:border-[#333] rounded hover:bg-[#F3F1EE] dark:hover:bg-[#1A1A1A] transition-colors bg-white dark:bg-[#0a0a0a] text-[#1A1A1A] dark:text-white whitespace-nowrap">
-                        View proof
-                    </button>
-                    <button className="px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium border border-[#E8E4DE] dark:border-[#333] rounded hover:bg-[#F3F1EE] dark:hover:bg-[#1A1A1A] transition-colors bg-white dark:bg-[#0a0a0a] text-[#1A1A1A] dark:text-white whitespace-nowrap">
-                        Download
-                    </button>
-                </div>
+                )}
             </div>
         </div>
     );
