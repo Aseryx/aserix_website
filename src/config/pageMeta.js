@@ -1,29 +1,18 @@
+import { META } from '../content/siteCopy.js';
+
 /** Per-route SEO metadata used by usePageMeta and the prerender script */
 export const PAGE_META = {
   '/': {
-    title: 'Aseryx | Data Verification & Assetization Protocol',
-    description:
-      'The data verification protocol for AI. Institutions assetize sensitive data for AI builders. Quality verified. Data never moves. 80 to 85% revenue share.',
+    title: META.siteTitle,
+    description: META.homeDescription,
   },
   '/partners': {
-    title: 'Aseryx | For Data Providers',
-    description:
-      'Assetize proprietary datasets without surrendering custody. Verified quality scores, 80 to 85% revenue share, and full approval control.',
-  },
-  '/buyers': {
-    title: 'Aseryx | For AI Builders',
-    description:
-      'Access cryptographically verified institutional datasets. Train on high-value data with zero custody risk and proven quality scores.',
-  },
-  '/datasets': {
-    title: 'Aseryx | Datasets',
-    description:
-      'Browse datasets that passed Aseryx two-layer cryptographic appraisal. Provenance proven. Quality scored. No raw data transmitted.',
+    title: 'Aseryx | For Institutions',
+    description: META.partnersDescription,
   },
   '/blog': {
     title: 'Aseryx | Blog',
-    description:
-      'Thinking on data verification, AI privacy, data assetization, and institutional data economics.',
+    description: META.blogDescription,
   },
   '/privacy': {
     title: 'Aseryx | Privacy Policy',
@@ -42,10 +31,10 @@ export function metaForBlogPost(post) {
   };
 }
 
-export function metaForDataset(dataset) {
+export function metaForCaseStudy(study) {
   return {
-    title: `${dataset.shortTitle} | Aseryx Datasets`,
-    description: dataset.description,
+    title: `${study.shortTitle} Appraisal | Aseryx Case Study`,
+    description: study.metaDescription,
   };
 }
 
@@ -57,9 +46,9 @@ export function resolvePageMeta(pathname) {
     return null; // resolved at runtime with post data
   }
 
-  const datasetMatch = pathname.match(/^\/dataset\/([^/]+)$/);
-  if (datasetMatch) {
-    return null; // resolved at runtime with dataset data
+  const caseStudyMatch = pathname.match(/^\/case-study\/([^/]+)$/);
+  if (caseStudyMatch) {
+    return null; // resolved at runtime with case study data
   }
 
   return PAGE_META['/'];

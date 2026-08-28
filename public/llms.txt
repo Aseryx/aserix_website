@@ -1,38 +1,41 @@
-# Aseryx - Verified Data Licensing Protocol for AI
+# Aseryx - On-Prem Data Appraisal, Verification & Assetization Protocol
 
 ## Company Overview
-Aseryx is a verified data licensing protocol that enables institutions to monetize proprietary data without surrendering custody. Built for healthcare institutions, hedge funds, and data providers who need to share verified insights without exposing raw data.
+Aseryx is the protocol for on-prem data appraisal, verification, and assetization. Regulated institutions appraise proprietary datasets in their own environment, produce verified proof counterparties trust, and license access. Trapped data becomes a usable asset without surrendering custody.
+
+## Protocol Stack
+1. **Appraisal**: Score what proprietary data is worth to a counterparty (0–100 richness score, readiness gate)
+2. **Verification**: Produce verified proof of quality and provenance without moving raw data
+3. **Assetization**: License access on your terms; data becomes economically usable on-prem
 
 ## Value Proposition
-- **Zero Custody Transfer**: Data never leaves the owner's control
-- **Mathematical Verification**: Proofs replace legal agreements
-- **Revenue Share**: 80-85% of revenue goes to data providers
-- **Full Approval Control**: Owners approve or decline every access request
+- **On-Prem Data**: Appraisal, verification, and assetization run in the holder's environment
+- **No Custody Transfer**: Raw data never leaves the institution's control
+- **Verified Score**: A quality score and readiness gate a counterparty can verify
+- **Provider Control**: Institutions approve every access request
 
-## Target Markets
-- **Healthcare**: Hospitals, clinics, EHR systems, MedTech companies
-- **Finance**: Hedge funds, syndicates, proprietary trading firms
-- **Research**: Academic institutions, research organizations
-- **Legal**: Legal archives, compliance datasets
-- **Industrial**: Sensor arrays, IoT data providers
+## Example Verticals
+- **Finance**: Hedge funds, syndicates, and financial institutions with proprietary operational and fraud datasets
+- **Insurance**: Carriers and underwriters with proprietary claims and risk datasets
+- **Healthcare**: Hospitals, clinics, EHR systems, and health systems with data that cannot leave their infrastructure
 
 ## Technology
-- Zero-knowledge proofs for data verification
-- Cryptographic access enforcement
-- On-chain provenance tracking
-- No PHI custody or breach liability
+- Verified on-prem data appraisal for data quality
+- Verified access enforcement
+- Runs in your environment; custody never transfers
 
 ## Key Use Cases
-1. **Fund Performance Verification**: Prove returns without revealing positions
-2. **Fraud Pattern Detection**: Train models on verified fraud events
-3. **Women's Health Research**: Aggregate cycle patterns without exposing identities
+1. **EN–MY Translation Memory (case study)**: 4.6M segment pairs appraised on-prem, score 93/100 ([case study](https://aseryx.xyz/case-study/en-my-corpus))
+2. **Fund Performance Verification**: Prove returns without revealing positions
+3. **Fraud Pattern Detection**: Verify fraud signal quality without copying transaction data
 4. **Clinical Outcomes**: Verify treatment efficacy without patient data transfer
+5. **Claims Appraisal**: Score operational tables on-prem before agent or analytics use
 
 ## Contact
 - Website: https://aseryx.xyz/
-- Partners: https://aseryx.xyz/partners
-- Data Requests: https://tally.so/r/dWdWQq
-- Partner Inquiries: https://tally.so/r/eq6aVq
+- Case Study: https://aseryx.xyz/case-study/en-my-corpus
+- For Institutions: https://aseryx.xyz/partners
+- Request an Appraisal: https://tally.so/r/eq6aVq
 
 ## Brand Keywords
-Aseryx, verified data licensing protocol, zero-knowledge data, cryptographic verification, data monetization, AI training data, healthcare data licensing, finance data verification, privacy-preserving data sharing
+Aseryx, on-prem data appraisal, on-prem data verification, on-prem data assetization, data licensing protocol, verified data quality, privacy-preserving data sharing, institutional data licensing

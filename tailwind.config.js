@@ -11,6 +11,8 @@ export default {
         'display': ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
         'mono': ['"IBM Plex Mono"', 'monospace'],
         'sans': ['"IBM Plex Sans"', 'system-ui', 'sans-serif'],
+        'instrument': ['"Geist Sans"', 'system-ui', 'sans-serif'],
+        'instrument-mono': ['"Geist Mono"', 'monospace'],
       },
       colors: {
         brand: {
