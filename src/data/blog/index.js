@@ -5,7 +5,7 @@ export const BLOG_POSTS = [
     "excerpt": "The data brokerage industry is a $278 billion machine. It exists because institutions can't sell data directly and buyers can't verify what they're getting.",
     "date": "2026-04-24",
     "category": "Data Economics",
-    "featured": true,
+    "featured": false,
     "readTime": "14 min read"
   },
   {
@@ -23,7 +23,7 @@ export const BLOG_POSTS = [
     "excerpt": "The AI data market can verify quality. It still can't answer the only question that matters to sellers.",
     "date": "2026-04-03",
     "category": "Data Valuation",
-    "featured": false,
+    "featured": true,
     "readTime": "11 min read"
   },
   {
